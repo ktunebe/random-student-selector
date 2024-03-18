@@ -4,10 +4,11 @@ var students = ['Veysel', 'Jake', 'Nick', 'Kent', 'Caleb', 'Parker', 'Tom', 'Meg
 let calledOn = 0;
 let studentList = [];
 
-// Select button
+// Select button and DOM objects
 const button = document.querySelector("#button");
 const winner = document.querySelector("#winner");
 const announcement = document.querySelector("#announcement");
+// Made variable for drum gif img tag to insert on click
 let drumRoll = '<img src="assets/images/drum_1f941.gif" alt="image description">';
 
 // Function to create new student object
@@ -51,8 +52,9 @@ function getRandomStudent(array) {
     } 
 }
 
+// Create the student list on load
 createStudentList();
-
+// Button click to run everything else
 button.addEventListener('click', function e() {
     getRandomStudent(studentList);
     console.log(studentList);
