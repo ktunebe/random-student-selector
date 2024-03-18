@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-On clicking the "Select Random Student" button, a function will run to select a student from the class list. It will then add a count to their called on total, which will prevent them from being called on again. Once every student has been called, the counts reset.
+On clicking the button, a function will run to select a student from the class list. It will then add a count to their called on total, which will prevent them from being called on again. Once every student has been called, the counts reset.
 
 Link to deployed application: https://ktunebe.github.io/random-student-selector/
 
