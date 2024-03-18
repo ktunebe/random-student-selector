@@ -20,7 +20,8 @@ Link to deployed application: https://ktunebe.github.io/random-student-selector/
 
 - Fonts
     - "Diediedie" Designed by Mike Emory. ©2001 Static Type Foundry. Downloaded from https://www.1001fonts.com/
-    - "Hothead" Hothead © 2002 Brain Eaters Font Company. Downloaded from https://www.1001fonts.com/
+    - "Hothead" Hothead © 2002 Brain Eaters Font Company. Downloaded from https://www.1001fonts.com/ 
+        File from creators included in assets/fonts folder.
 
 - Color Palette obtained free from https://coolors.co/
 
