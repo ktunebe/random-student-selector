@@ -1,0 +1,86 @@
+:root {
+    --dark-grey: #2B2D42;
+    --mid-grey: #8D99AE;
+    --light-grey: #EDF2F4;
+    --light-red: #EF233C;
+    --dark-red: #D90429;
+}
+
+@font-face {
+    font-family: diedie;
+    src: url(../fonts/diediedie.TTF)
+}
+
+@font-face {
+    font-family: hothead;
+    src: url(../fonts/hothead_.ttf)
+}
+
+html {
+    font-size: 40%;
+}
+
+body {
+    background-color: var(--mid-grey);
+    color: var(--dark-grey);
+    margin: 0 auto;
+    font-family: diedie;
+}
+
+h1 {
+    font-size: 6rem;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.button-holder {
+    text-align: center;
+    padding: 3rem;
+}
+
+#button {
+    background-color: var(--dark-red);
+    color: var(--mid-grey);
+    font-weight: bold;
+    border: 3px solid var(--dark-grey);
+    font-size: 3.5rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+}
+
+#button:hover {
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>☠️</text></svg>") 16 0,auto; /*!emojicursor.app*/
+}
+
+.announcement-holder {
+    padding-top: 4rem;
+    font-size: 5rem;
+    text-align: center;
+}
+
+img {
+    max-width: 50%;
+}
+
+#announcement {
+    display: inline;
+}
+
+#winner {
+    font-family: hothead;
+    font-weight: bold;
+    color: var(--dark-red);
+    display: inline;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media (min-width: 992px) {
+    html {
+        font-size: 75%;
+    }
+}
