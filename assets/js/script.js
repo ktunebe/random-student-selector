@@ -19,7 +19,7 @@ const Student = function(studentName, calledOn) {
 
 // Create array of Student objects by looping through the array of student strings
 function createStudentList()  {
-    if (localStorage.length > 0) {
+    if (localStorage.getItem("storedList") !== null) {
         studentList = JSON.parse(localStorage.getItem("storedList"));
     } else {
         for (let i = 0; i < students.length; i++) {
