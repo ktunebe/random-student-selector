@@ -19,11 +19,15 @@ const Student = function(studentName, calledOn) {
 
 // Create array of Student objects by looping through the array of student strings
 function createStudentList()  {
-    for (let i = 0; i < students.length; i++) {
-        studentName = students[i];
-        calledOn = 0;
-        student = new Student(studentName, calledOn);
-        studentList.push(student);
+    if (localStorage.length > 0) {
+        studentList = JSON.parse(localStorage.getItem("storedList"));
+    } else {
+        for (let i = 0; i < students.length; i++) {
+            studentName = students[i];
+            calledOn = 0;
+            student = new Student(studentName, calledOn);
+            studentList.push(student);
+        }
     }
     return studentList;
 }
@@ -31,32 +35,34 @@ function createStudentList()  {
 
 
 // Function to call random student, exlcuding ones who have been called and resetting count if all students have been called
-function getRandomStudent(array) {
-    const randomIndex = Math.floor( Math.random() * array.length );
-    let randomStudent = array[randomIndex];
-    const allCalled = array.every(obj => obj.calledOn > 0);
+function getRandomStudent() {
+    // studentList = JSON.parse(localStorage.getItem("storedList"))
+    const randomIndex = Math.floor( Math.random() * studentList.length );
+    let randomStudent = studentList[randomIndex];
+    const allCalled = studentList.every(obj => obj.calledOn > 0);
     function displayAnnouncement() {
         announcement.textContent = "ThE lucky student is: ";
         winner.textContent = `${randomStudent.studentName}`
     }
     if (allCalled) {
-        array.forEach((randomStudent) => randomStudent.calledOn = 0);
-        getRandomStudent(array);
+        studentList.forEach((randomStudent) => randomStudent.calledOn = 0);
+        getRandomStudent(studentList);
     } else if (randomStudent.calledOn === 0) {
         winner.textContent = "";
         announcement.innerHTML = `${drumRoll}`;
         setTimeout(displayAnnouncement, 1800);
         randomStudent.calledOn++;
     } else if (randomStudent.calledOn > 0) {
-        getRandomStudent(array);
+        getRandomStudent(studentList);
     } 
+    localStorage.setItem("storedList", JSON.stringify(studentList))
 }
 
 // Create the student list on load
 createStudentList();
 // Button click to run everything else
 button.addEventListener('click', function e() {
-    getRandomStudent(studentList);
+    getRandomStudent();
     console.log(studentList);
 });
 
