@@ -36,7 +36,6 @@ function createStudentList()  {
 
 // Function to call random student, exlcuding ones who have been called and resetting count if all students have been called
 function getRandomStudent() {
-    // studentList = JSON.parse(localStorage.getItem("storedList"))
     const randomIndex = Math.floor( Math.random() * studentList.length );
     let randomStudent = studentList[randomIndex];
     const allCalled = studentList.every(obj => obj.calledOn > 0);
