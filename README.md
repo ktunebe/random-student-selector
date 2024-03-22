@@ -23,6 +23,10 @@ Link to deployed application: https://ktunebe.github.io/random-student-selector/
     - "Hothead" Hothead © 2002 Brain Eaters Font Company. Downloaded from https://www.1001fonts.com/ 
     - Files from creators included in assets/fonts folder.
 
+- Sounds
+    - Drum roll sound downloaded from https://pixabay.com/
+    - Drum roll mp3 trimmed using editor at https://audiotrimmer.com/
+
 - Color Palette obtained free from https://coolors.co/
 
 ## License

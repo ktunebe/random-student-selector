@@ -10,6 +10,7 @@ const winner = document.querySelector("#winner");
 const announcement = document.querySelector("#announcement");
 // Made variable for drum gif img tag to insert on click
 let drumRoll = '<img src="assets/images/drum_1f941.gif" alt="image description">';
+let drumSound = new Audio('assets/sounds/drum-roll.mp3');
 
 // Function to create new student object
 const Student = function(studentName, calledOn) {
@@ -48,8 +49,9 @@ function getRandomStudent() {
         getRandomStudent(studentList);
     } else if (randomStudent.calledOn === 0) {
         winner.textContent = "";
+        drumSound.play();
         announcement.innerHTML = `${drumRoll}`;
-        setTimeout(displayAnnouncement, 1800);
+        setTimeout(displayAnnouncement, 1950);
         randomStudent.calledOn++;
     } else if (randomStudent.calledOn > 0) {
         getRandomStudent(studentList);
