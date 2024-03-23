@@ -16,8 +16,10 @@
     src: url(../fonts/hothead_.ttf)
 }
 
+
 html {
     font-size: 35%;
+    
 }
 
 body {
@@ -71,7 +73,7 @@ img {
     font-family: hothead;
     font-weight: bold;
     color: var(--dark-red);
-    display: inline;
+    display: inline-block;
 }
 
 @media (min-width: 768px) {
