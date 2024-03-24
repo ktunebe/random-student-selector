@@ -6,12 +6,11 @@ let studentList = [];
 
 // Select button and DOM objects
 const button = document.querySelector("#button");
-const winner = document.querySelector("#winner");
+const winner = $('#winner');
 const announcement = document.querySelector("#announcement");
 
 // Set effect transition time if wanting to change all animations
 let textTransitionTime = 600;
-winner.style.transition = `all ${textTransitionTime}ms ease-in-out`;
 
 // Made variables for drum gif img tag and drum roll sound effect
 let drumRoll = '<img src="assets/images/drum_1f941.gif" alt="image description">';
@@ -38,24 +37,36 @@ function createStudentList()  {
     return studentList;
 }
 
+// Reset announcement holder
+function reset() {
+    winner.text('');
+    winner.animate({
+        rotate: '0deg'
+    }, 0);
+}
+
 //Function to pop winner text
 function popText() {
-    winner.style.fontSize = "10rem";
-    setTimeout(function() {
-        winner.style.fontSize = "5rem";
+    winner.animate ({
+        fontSize: '10rem'
+    }, textTransitionTime)
+    winner.animate ({
+        fontSize: '5rem'
     }, textTransitionTime)
 }
 
 //Function to swing winner text
 function swingText() {
-    winner.style.transformOrigin = "bottom left";
-    winner.style.transform = "rotate(130deg)";
-    setTimeout(function() {
-        winner.style.transform = "rotate(60deg)";
+    winner.css('transform-origin', 'bottom left');
+    winner.animate({
+        rotate: '130deg',
     }, textTransitionTime)
-    setTimeout(function() {
-        winner.style.transform = "rotate(75deg)";
-    }, (textTransitionTime * 2))
+    winner.animate({
+        rotate: '60deg',
+    }, textTransitionTime)
+    winner.animate({
+        rotate: '75deg',
+    }, textTransitionTime)
 }
 
 
@@ -67,19 +78,18 @@ function getRandomStudent() {
     const allCalled = studentList.every(obj => obj.calledOn > 0);
     function displayAnnouncement() {
         announcement.textContent = "ThE lucky student is: ";
-        winner.textContent = `${randomStudent.studentName}`
+        winner.text(`${randomStudent.studentName}`);
     }
     if (allCalled) {
         studentList.forEach((randomStudent) => randomStudent.calledOn = 0);
         getRandomStudent();
     } else if (randomStudent.calledOn === 0) {
-        winner.textContent = "";
-        winner.style.transform = "rotate(0deg)";
+        reset();
         drumSound.play();
         announcement.innerHTML = `${drumRoll}`;
         setTimeout(displayAnnouncement, 1950);
         setTimeout(popText, 2000);
-        setTimeout(swingText,3200);
+        setTimeout(swingText, (3200));
         randomStudent.calledOn++;
     } else if (randomStudent.calledOn > 0) {
         getRandomStudent();
@@ -90,11 +100,10 @@ function getRandomStudent() {
 // Create the student list on load
 createStudentList();
 // Button click to run everything else
-button.addEventListener('click', function e() {
+button.addEventListener('click', function () {
     getRandomStudent();
     console.log(studentList);
 });
-
 
 
 
